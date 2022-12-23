@@ -1,2 +1,12 @@
 ---
 # handlers file for update-system-macos
+- name: Upgrade macOS Apps
+  command:
+    cmd: mas upgrade
+
+- name: Install macos System Updates
+  become: true
+  command:
+    cmd: softwareupdate -i -a
+  vars:
+    ansible_become_password: "{{ sudo_pass }}"

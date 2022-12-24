@@ -3,6 +3,7 @@
 - name: Load Sudo Password
   set_fact:
     sudo_pass: "{{ lookup('vars', (ansible_hostname | lower | replace('-','_' )) + '_sudo_password') }}"
+  failed_when: sudo_pass == ''
 
 - name: Upgrade Homebrew Cask Packages
   homebrew_cask:

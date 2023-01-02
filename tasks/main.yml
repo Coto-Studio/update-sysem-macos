@@ -19,6 +19,8 @@
   register: mas_outdated
   changed_when: mas_outdated.stderr != ''
   notify: Upgrade macOS Apps
+  environment:
+    PATH: "/opt/homebrew/bin/:/usr/local/bin/:{{ ansible_env.PATH }}"
 
 - name: Check for macOS system updates
   become: true

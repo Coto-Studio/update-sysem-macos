@@ -7,7 +7,5 @@
 - name: Install macos System Updates
   become: true
   command:
-    stdin: "{{}}"
+    stdin: "{{ ansible_become_password }}"
     cmd: softwareupdate --install --all --restart --stdinpass
-  vars:
-    ansible_become_password: "{{ sudo_pass }}"

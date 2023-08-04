@@ -4,8 +4,6 @@
   command:
     cmd: mas upgrade
 
-- name: Install macos System Updates
-  become: true
-  command:
-    stdin: "{{ ansible_become_password }}"
-    cmd: softwareupdate --install --all --restart --stdinpass
+- name: Install macOS System Updates
+  debug:
+    msg: "macOS system updates are avialable. Please update locally."

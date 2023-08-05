@@ -29,4 +29,4 @@
     cmd: softwareupdate --list
   register: macos_outdated
   changed_when: "'No new software available.' not in macos_outdated.stderr"
-  notify: Install macos System Updates
+  notify: Install macOS System Updates

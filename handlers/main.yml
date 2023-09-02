@@ -3,6 +3,8 @@
 - name: Upgrade macOS Apps
   command:
     cmd: mas upgrade
+  environment:
+    PATH: "/opt/homebrew/bin/:/usr/local/bin/:{{ ansible_env.PATH }}"
 
 - name: Install macOS System Updates
   debug:

@@ -1,9 +1,8 @@
 ---
 # tasks file for update-system-macos
-- name: Update & Upgrade Homebrew Packages
+- name: Update Homebrew Packages
   homebrew:
     update_homebrew: true
-    upgrade_all: true
 
 - name: Upgrade Homebrew Cask Packages
   homebrew_cask:
@@ -13,6 +12,11 @@
     sudo_password: ansible_become_password
   register: cask_status
   changed_when: cask_status['msg'] != 'Homebrew casks upgraded.'
+
+- name: Upgrade Homebrew Packages
+  homebrew:
+    upgrade_all: true
+  ignore_errors: true
 
 - name: Mas check for outdated apps
   command:
